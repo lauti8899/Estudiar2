@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prueba Sociales 1º grado</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+      color: #111827;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+
+    .botones {
+      margin: 1rem 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 1rem;
+      background-color: #2563eb;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #1e40af;
+      transform: scale(1.05);
+    }
+
+    .card, .pregunta {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin: 1rem;
+      padding: 1.5rem;
+      max-width: 700px;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card h2 {
+      color: #2563eb;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .pregunta strong {
+      color: #1d4ed8;
+    }
+
+    .seccion {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      display: block;
+      margin: 0.5rem 0;
+    }
+
+    .resultado {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Estudio Sociales - 1º Grado</h1>
+
+  <div class="botones">
+    <button onclick="mostrarSeccion('estudio')">Estudiar</button>
+    <button onclick="mostrarSeccion('prueba')">Prueba</button>
+  </div>
+
+  <!-- Sección de Estudio -->
+  <div id="estudio" class="seccion">
+    <div class="card visible">
+      <h2>La revolución del neolítico</h2>
+      <p>La revolución del neolítico fue un cambio importante en la historia. Las personas dejaron de ser nómadas para volverse sedentarias. Aprendieron a cultivar la tierra y a domesticar animales.</p>
+    </div>
+
+    <div class="card visible">
+      <h2>Las aldeas y la vida en el neolítico</h2>
+      <p>En el neolítico, las personas vivían en aldeas. Construían casas de barro y paja, y compartían tareas como la agricultura, la caza y el cuidado de animales.</p>
+    </div>
+
+    <div class="card visible">
+      <h2>¿Quiénes eran los súmeros y su sociedad?</h2>
+      <p>Los súmeros vivieron en Mesopotamia. Fueron una de las primeras civilizaciones. Tenían ciudades, escribían con símbolos (cuneiforme), y tenían leyes y templos.</p>
+    </div>
+
+    <div class="card visible">
+      <h2>¿Qué es un relieve y sus tipos?</h2>
+      <p>El relieve es el conjunto de formas que tiene la superficie de la Tierra. El relieve continental incluye montañas, llanuras y valles. El relieve oceánico incluye dorsales, fosas y llanuras abisales.</p>
+    </div>
+  </div>
+
+  <!-- Sección de Prueba -->
+  <div id="prueba" class="seccion">
+    <form id="quizForm">
+      <div class="pregunta visible">
+        <strong>1. ¿Qué cambio ocurrió durante la revolución del neolítico?</strong>
+        <label><input type="radio" name="p1" value="correcta"> Se volvieron sedentarios y cultivaban</label>
+        <label><input type="radio" name="p1" value=""> Viajaban constantemente</label>
+        <label><input type="radio" name="p1" value=""> Construyeron rascacielos</label>
+      </div>
+
+      <div class="pregunta visible">
+        <strong>2. ¿Cómo era la vida en las aldeas del neolítico?</strong>
+        <label><input type="radio" name="p2" value="correcta"> Vivían en casas de barro y trabajaban juntos</label>
+        <label><input type="radio" name="p2" value=""> Dormían en árboles</label>
+        <label><input type="radio" name="p2" value=""> Iban en coches</label>
+      </div>
+
+      <div class="pregunta visible">
+        <strong>3. ¿Quiénes fueron los súmeros?</strong>
+        <label><input type="radio" name="p3" value="correcta"> Una antigua civilización de Mesopotamia</label>
+        <label><input type="radio" name="p3" value=""> Habitantes del polo sur</label>
+        <label><input type="radio" name="p3" value=""> Piratas del Caribe</label>
+      </div>
+
+      <div class="pregunta visible">
+        <strong>4. ¿Qué es el relieve?</strong>
+        <label><input type="radio" name="p4" value="correcta"> Las formas de la superficie de la Tierra</label>
+        <label><input type="radio" name="p4" value=""> El clima de una región</label>
+        <label><input type="radio" name="p4" value=""> Los colores del paisaje</label>
+      </div>
+
+      <div class="pregunta visible">
+        <strong>5. ¿Cuál es una forma de relieve oceánico?</strong>
+        <label><input type="radio" name="p5" value="correcta"> Las fosas marinas</label>
+        <label><input type="radio" name="p5" value=""> Las montañas</label>
+        <label><input type="radio" name="p5" value=""> Los desiertos</label>
+      </div>
+
+      <button type="button" onclick="verificarRespuestas()">Enviar</button>
+      <div id="resultado" class="resultado"></div>
+    </form>
+  </div>
+
+  <script>
+    function mostrarSeccion(id) {
+      const secciones = document.querySelectorAll('.seccion');
+      secciones.forEach(seccion => {
+        seccion.style.display = 'none';
+      });
+
+      const activa = document.getElementById(id);
+      activa.style.display = 'flex';
+
+      setTimeout(() => {
+        activa.querySelectorAll('.card, .pregunta').forEach(el => {
+          el.classList.add('visible');
+        });
+      }, 50);
+    }
+
+    function verificarRespuestas() {
+      let correctas = 0;
+      const total = 5;
+      const respuestas = document.querySelectorAll('input[type=radio]:checked');
+
+      respuestas.forEach(r => {
+        if (r.value === 'correcta') correctas++;
+      });
+
+      const resultado = document.getElementById('resultado');
+      resultado.textContent = `Respuestas correctas: ${correctas} de ${total}`;
+    }
+  </script>
+</body>
+</html>
