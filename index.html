@@ -5,96 +5,137 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prueba Sociales 1º grado</title>
   <style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+    color: #111827;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+
+  .botones {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #1e40af;
+    transform: scale(1.05);
+  }
+
+  .card, .pregunta {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1.5rem;
+    max-width: 700px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-sizing: border-box;
+  }
+
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card h2 {
+    color: #2563eb;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .pregunta strong {
+    color: #1d4ed8;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .seccion {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  label {
+    display: block;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .resultado {
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: green;
+  }
+
+  /* ✅ Estilos responsivos para móviles */
+  @media (max-width: 600px) {
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
-      color: #111827;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
+      padding: 1rem;
     }
 
     h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
-
-    .botones {
-      margin: 1rem 0;
-      display: flex;
-      gap: 1rem;
+      font-size: 1.5rem;
     }
 
     button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 1rem;
-      background-color: #2563eb;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    button:hover {
-      background-color: #1e40af;
-      transform: scale(1.05);
+      font-size: 0.95rem;
+      padding: 0.6rem 1.2rem;
     }
 
     .card, .pregunta {
-      background: white;
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      margin: 1rem;
-      padding: 1.5rem;
-      max-width: 700px;
-      width: 100%;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      margin: 0.75rem 0;
+      padding: 1rem;
     }
 
-    .visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card h2 {
-      color: #2563eb;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .pregunta strong {
-      color: #1d4ed8;
-    }
-
-    .seccion {
-      display: none;
-      flex-direction: column;
-      align-items: center;
+    .card h2, .pregunta strong {
+      font-size: 1.05rem;
     }
 
     label {
-      display: block;
-      margin: 0.5rem 0;
+      font-size: 0.95rem;
     }
 
     .resultado {
-      margin-top: 1rem;
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: green;
+      font-size: 1rem;
     }
+  }
   </style>
 </head>
 <body>
@@ -125,6 +166,11 @@
     <div class="card visible">
       <h2>¿Qué es un relieve y sus tipos?</h2>
       <p>El relieve es el conjunto de formas que tiene la superficie de la Tierra. El relieve continental incluye montañas, llanuras y valles. El relieve oceánico incluye dorsales, fosas y llanuras abisales.</p>
+    </div>
+
+    <div class="card visible">
+      <h2>Cambios climáticos</h2>
+      <p>Los cambios climáticos son variaciones en el clima que pueden durar mucho tiempo. En la prehistoria, estos cambios afectaron la forma en que vivían las personas y qué alimentos podían cultivar.</p>
     </div>
   </div>
 
@@ -166,6 +212,13 @@
         <label><input type="radio" name="p5" value=""> Los desiertos</label>
       </div>
 
+      <div class="pregunta visible">
+        <strong>6. ¿Qué son los cambios climáticos?</strong>
+        <label><input type="radio" name="p6" value="correcta"> Variaciones en el clima que duran mucho tiempo</label>
+        <label><input type="radio" name="p6" value=""> Cambios en la ropa que usan las personas</label>
+        <label><input type="radio" name="p6" value=""> Cambios en la música de un lugar</label>
+      </div>
+
       <button type="button" onclick="verificarRespuestas()">Enviar</button>
       <div id="resultado" class="resultado"></div>
     </form>
@@ -190,7 +243,7 @@
 
     function verificarRespuestas() {
       let correctas = 0;
-      const total = 5;
+      const total = 6;
       const respuestas = document.querySelectorAll('input[type=radio]:checked');
 
       respuestas.forEach(r => {
